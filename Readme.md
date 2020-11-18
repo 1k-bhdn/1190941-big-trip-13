@@ -1,7 +1,7 @@
 # Проект «Большое путешествие» [![Build status][travis-image]][travis-url]
 
 * Студент: [Богдан Коломиец](https://up.htmlacademy.ru/ecmascript/13/user/1190941).
-* Наставник: `Неизвестно`.
+* Наставник: [Данил Чушко](https://up.htmlacademy.ru/ecmascript/13/user/564149).
 
 ---
 
