@@ -7,12 +7,12 @@ import {createEventTemplate} from "./view/event.js";
 import {createEventEditTemplate} from "./view/event-edit.js";
 import {createEventFacilitiesTemplate} from "./view/event-facilities.js";
 import {createEventDestinationTemplate} from "./view/event-destination.js";
+import {generatedEvents} from "./mock/event.js";
 
 const TRIP_MAIN = document.querySelector(`.trip-main`);
 const TRIP_CONTROLS = TRIP_MAIN.querySelector(`.trip-controls`);
 const TRIP_CONTROLS_LAST_TITLE = TRIP_CONTROLS.querySelector(`h2:last-of-type`);
 const TRIP_EVENTS = document.querySelector(`.trip-events`);
-const TASK_COUNT = 3;
 
 const render = (container, template, place) => {
   container.insertAdjacentHTML(place, template);
@@ -40,9 +40,9 @@ const EVENT_LIST = TRIP_EVENTS.querySelector(`.trip-events__list`);
 
 createElement(`li`, `trip-events__item`, EVENT_LIST);
 
-for (let i = 0; i < TASK_COUNT; i++) {
+for (let i = 0; i < generatedEvents.length; i++) {
   let eventListItem = createElement(`li`, `trip-events__item`, EVENT_LIST);
-  render(eventListItem, createEventTemplate(), `afterbegin`);
+  render(eventListItem, createEventTemplate(generatedEvents[i]), `afterbegin`);
 }
 
 const EVENT_LIST_ITEM_EDIT = EVENT_LIST.querySelector(`li:first-of-type`);
@@ -54,4 +54,3 @@ createElement(`section`, `event__details`, EVENT_EDIT_FORM);
 const EVENT_DETAILS = EVENT_EDIT_FORM.querySelector(`.event__details`);
 render(EVENT_DETAILS, createEventFacilitiesTemplate(), `afterbegin`);
 render(EVENT_DETAILS, createEventDestinationTemplate(), `beforeend`);
-
